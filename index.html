@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+        .schedule-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        .schedule-header {
+            background-color: #409eff;
+            color: #fff;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .week-select {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .view-switch {
+            display: flex;
+            gap: 8px;
+        }
+        .view-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            border: none;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .view-btn.active {
+            background: #fff;
+            color: #409eff;
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .schedule-table th,
+        .schedule-table td {
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            padding: 8px;
+            vertical-align: top;
+            height: 100px;
+        }
+        .schedule-table th {
+            background-color: #409eff;
+            color: #fff;
+            font-weight: 500;
+            height: 60px;
+        }
+        .time-col {
+            width: 80px;
+            background-color: #f7f8fa;
+            font-weight: 500;
+        }
+        .course-item {
+            padding: 8px;
+            border-radius: 6px;
+            color: #fff;
+            height: 100%;
+            text-align: left;
+            line-height: 1.5;
+        }
+        /* 课程颜色 */
+        .course-green {
+            background-color: #67c23a;
+        }
+        .course-red {
+            background-color: #f56c6c;
+        }
+        .course-orange {
+            background-color: #e6a23c;
+        }
+        .course-blue {
+            background-color: #409eff;
+        }
+        .course-cyan {
+            background-color: #36ceb8;
+        }
+        .no-course {
+            background-color: #f0f2f5;
+        }
+        .footer-note {
+            padding: 16px;
+            background-color: #f7f8fa;
+            color: #606266;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="schedule-container">
+        <!-- 顶部栏 -->
+        <div class="schedule-header">
+            <div class="week-select">2025-2026-2第6周默认节次...</div>
+            <div class="view-switch">
+                <button class="view-btn active">▦</button>
+                <button class="view-btn">⊞</button>
+                <button class="view-btn">☰</button>
+            </div>
+        </div>
+
+        <!-- 课程表主体 -->
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th class="time-col">04月</th>
+                    <th>周一<br>13</th>
+                    <th>周二<br>14</th>
+                    <th>周三<br>15</th>
+                    <th>周四<br>16</th>
+                    <th>周五<br>17</th>
+                    <th>周六<br>18</th>
+                    <th>周日<br>19</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 一大节 01,02 -->
+                <tr>
+                    <td class="time-col">一大节<br>01,02</td>
+                    <td class="no-course"></td>
+                    <td>
+                        <div class="course-item course-green">
+                            数据结构与算法基础*<br>
+                            -罗勇胜@3-A-7<br>
+                            __
+                        </div>
+                    </td>
+                    <td>
+                        <div class="course-item course-red">
+                            Web前端开发技术-梅雨竹@3<br>
+                            -A-705
+                        </div>
+                    </td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                </tr>
+                <!-- 二大节 03,04 -->
+                <tr>
+                    <td class="time-col">二大节<br>03,04</td>
+                    <td class="no-course"></td>
+                    <td>
+                        <div class="course-item course-red">
+                            数据结构与算法基础*<br>
+                            -罗勇胜@3-A-7<br>
+                            __
+                        </div>
+                    </td>
+                    <td>
+                        <div class="course-item course-red">
+                            Web前端开发技术-梅雨竹@3<br>
+                            -A-705
+                        </div>
+                    </td>
+                    <td class="no-course"></td>
+                    <td>
+                        <div class="course-item course-orange">
+                            大学国文-苏妙云@5-9<br>
+                            -301
+                        </div>
+                    </td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                </tr>
+                <!-- 三大节 05,06 -->
+                <tr>
+                    <td class="time-col">三大节<br>05,06</td>
+                    <td class="no-course"></td>
+                    <td>
+                        <div class="course-item course-blue">
+                            C#程序设计与应用（B）-<br>
+                            李俊@<br>
+                            信息中心
+                        </div>
+                    </td>
+                    <td class="no-course"></td>
+                    <td>
+                        <div class="course-item course-green">
+                            体育*-姚鸿彬@操场
+                        </div>
+                    </td>
+                    <td>
+                        <div class="course-item course-red">
+                            数据库应用*-林志坚<br>
+                            @信息中心60<br>
+                            _
+                        </div>
+                    </td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                </tr>
+                <!-- 四大节 07,08 -->
+                <tr>
+                    <td class="time-col">四大节<br>07,08</td>
+                    <td class="no-course"></td>
+                    <td>
+                        <div class="course-item course-cyan">
+                            C#程序设计与应用（B）-<br>
+                            李俊@<br>
+                            信息中心
+                        </div>
+                    </td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td>
+                        <div class="course-item course-orange">
+                            数据库应用*-林志坚<br>
+                            @信息中心60<br>
+                            _
+                        </div>
+                    </td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                </tr>
+                <!-- 五大节 09,10 -->
+                <tr>
+                    <td class="time-col">五大节<br>09,10</td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                    <td class="no-course"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 底部备注 -->
+        <div class="footer-note">
+            <p>无课表课程：</p>
+            <p>• 劳动教育[005281]（第1-3周）-周盛华【校区：本部】</p>
+        </div>
+    </div>
+</body>
+</html>
